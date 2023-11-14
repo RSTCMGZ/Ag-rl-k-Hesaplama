@@ -63,10 +63,8 @@ let gezegenler = [
 // let gezegenler = ["dünya", "jüpiter", "mars", "merkür", "ay", "neptün", "pluton", "satürn", "uranüs", "venus"]
 
 for (let i of gezegenler) {
-
     const option = document.createElement("option")
     option.textContent = i.adı[0].toUpperCase() + i.adı.slice(1)
-
     // option.textContent = i[0].toUpperCase() + i.slice(1)
     option.value = adı
     select.append(option)
