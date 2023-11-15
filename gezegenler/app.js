@@ -64,10 +64,10 @@ let gezegenler = [
 
 for (let i of gezegenler) {
 
-    // const option = document.createElement("option")
-    // option.textContent = i[0].toUpperCase() + i.slice(1)
-    // option.value = i
-    // select.append(option)
+    const option = document.createElement("option")
+    option.textContent = i.adi[0].toUpperCase() + i.adi.slice(1)
+    option.value = i.adi
+    select.append(option)
 }
 
 btn.addEventListener("click", () => {
@@ -76,10 +76,21 @@ btn.addEventListener("click", () => {
         let value = Number(input.value)
         let gezegen = select.value
         let kutle = value / 10
-        if (gezegen == "dünya") {
-            img.setAttribute("src", "./img/earth.png")
-            img.className = "active"
-            p.textContent = `${gezegen} gezegenindeki ağırlığın ${kutle * 10} KG'DIR`
+
+        for (let i of gezegenler) {
+            if (i.adi == gezegen) {
+                img.setAttribute("src", i.resim)
+                img.className = "active"
+                p.textContent = `${gezegen} gezegenindeki ağırlığın ${(kutle * i.yercekimi).toFixed(1)} KG'DIR`
+            }
         }
+    } else if (isNaN(input.value)) {
+        p.textContent = `Sadece rakam ile hesap yapabiliriz.`
+        img.setAttribute("src", "")
+        img.classList = ("")
+    } else if (select.value == "Bir Gezegen Seçiniz") {
+        p.textContent = `Bir gezegen seçmen lazım.`
+        img.setAttribute("src", "")
+        img.classList = ("")
     }
 })
