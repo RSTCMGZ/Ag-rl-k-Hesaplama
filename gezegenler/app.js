@@ -64,7 +64,15 @@ let gezegenler = ["dünya", "jüpiter", "mars", "merkür", "ay", "neptün", "plu
 
 for (let i of gezegenler) {
     const option = document.createElement("option")
-    option.textContent = i[0].toUpperCase() + i.slice(1, i.length)
+    option.textContent = i[0].toUpperCase() + i.slice(1)
     option.value = i
     select.append(option)
 }
+
+btn.addEventListener("click", () => {
+
+    if (!isNaN(input.value) && (select.value != "Bir Gezegen Seçiniz")) {
+        let value = Number(input.value)
+
+    }
+})
