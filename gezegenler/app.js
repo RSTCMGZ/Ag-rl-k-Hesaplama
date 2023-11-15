@@ -6,91 +6,65 @@ console.log(btn);
 const img = wrapper.querySelector("img")
 const p = wrapper.querySelector("p")
 
-let gezegenler = [
-    {
-        'adı': 'dünya',
-        'yercekimi': 10,
-        'resim': './img/earth.png'
-    },
-    {
-        'adı': 'jupiter',
-        'yercekimi': 25,
-        'resim': './img/jupiter.png'
-    },
-    {
-        'adı': 'mars',
-        'yercekimi': 3.7,
-        'resim': './img/mars.png'
-    },
-    {
-        'adı': 'mercur',
-        'yercekimi': 3.7,
-        'resim': './img/mercury.png'
-    },
-    {
-        'adı': 'ay',
-        'yercekimi': 1.6,
-        'resim': './img/moon.png'
-    },
-    {
-        'adı': 'neptün',
-        'yercekimi': 11.1,
-        'resim': './img/neptune.png'
-    },
-    {
-        'adı': 'pluto',
-        'yercekimi': 0.6,
-        'resim': './img/pluto.png'
-    },
-    {
-        'adı': 'saturn',
-        'yercekimi': 10.4,
-        'resim': './img/saturn.png'
-    },
-    {
-        'adı': 'uranus',
-        'yercekimi': 8.8,
-        'resim': './img/uranus.png'
-    },
-    {
-        'adı': 'venus',
-        'yercekimi': 8.8,
-        'resim': './img/venus.png'
-    },
+// let gezegenler = [
+//     {
+//         'adi': 'dünya',
+//         'yercekimi': 10,
+//         'resim': './img/earth.png'
+//     },
+//     {
+//         'adi': 'jupiter',
+//         'yercekimi': 25,
+//         'resim': './img/jupiter.png'
+//     },
+//     {
+//         'adi': 'mars',
+//         'yercekimi': 3.7,
+//         'resim': './img/mars.png'
+//     },
+//     {
+//         'adi': 'mercur',
+//         'yercekimi': 3.7,
+//         'resim': './img/mercury.png'
+//     },
+//     {
+//         'adi': 'ay',
+//         'yercekimi': 1.6,
+//         'resim': './img/moon.png'
+//     },
+//     {
+//         'adi': 'neptün',
+//         'yercekimi': 11.1,
+//         'resim': './img/neptune.png'
+//     },
+//     {
+//         'adi': 'pluto',
+//         'yercekimi': 0.6,
+//         'resim': './img/pluto.png'
+//     },
+//     {
+//         'adi': 'saturn',
+//         'yercekimi': 10.4,
+//         'resim': './img/saturn.png'
+//     },
+//     {
+//         'adi': 'uranus',
+//         'yercekimi': 8.8,
+//         'resim': './img/uranus.png'
+//     },
+//     {
+//         'adi': 'venus',
+//         'yercekimi': 8.8,
+//         'resim': './img/venus.png'
+//     },
 
-]
+// ]
 
-// let gezegenler = ["dünya", "jüpiter", "mars", "merkür", "ay", "neptün", "pluton", "satürn", "uranüs", "venus"]
+let gezegenler = ["dünya", "jüpiter", "mars", "merkür", "ay", "neptün", "pluton", "satürn", "uranüs", "venus"]
 
 for (let i of gezegenler) {
     const option = document.createElement("option")
-    option.textContent = i.adı[0].toUpperCase() + i.adı.slice(1)
-    // option.textContent = i[0].toUpperCase() + i.slice(1)
-    option.value = adı
+    option.textContent = i[0].toUpperCase() + i.slice(1, i.length)
+    option.value = i
     select.append(option)
 }
-btn.addEventListener('click', () => {
-
-    if (!isNaN(input.value) && select.value != "Bir Gezegen Seçiniz") {
-        let value = Number(input.value)
-        let gezegen = select.value
-        let kutle = value / 10;
-
-        for (let i of gezegenler) {
-            if (i.adı == gezegen) {
-                img.setAttribute("src", i.resim)
-                img.className = "active"
-                p.textContent = `${gezegen} gezegeninde ağırlığın ${(kutle * i.yercekimi).toFixed(1)}`
-            }
-        }
-    } else if (isNaN(input.value)) {
-        p.textContent = "Sadece rakam ile hesap yapabiliyoruz."
-        img.setAttribute("src", " ")
-        img.classList = " "
-    } else if (select.value == "Bir Gezegen Seçiniz") {
-        img.setAttribute = ("src", "")
-        img.classList = " "
-        p.textContent = "Bir gezegen seçmen lazım"
-    }
-
-})
